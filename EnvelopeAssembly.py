@@ -4,10 +4,10 @@
 # and is released under the "MIT License Agreement". Please see the LICENSE
 # file that should have been included as part of this package.
 
+import cadwork
+import attribute_controller as ac
 import element_controller as ec
 import utility_controller as uc
-import attribute_controller as ac
-from cadwork.element_grouping_type import element_grouping_type
 
 
 def get_grouping_attribute(element):
@@ -20,9 +20,9 @@ def get_grouping_attribute(element):
     Returns: The grouping attribute.
 
     """
-    if ac.get_element_grouping_type() == element_grouping_type.group:
+    if ac.get_element_grouping_type() == cadwork.element_grouping_type.group:
         return ac.get_group(element)
-    elif ac.get_element_grouping_type() == element_grouping_type.subgroup:
+    elif ac.get_element_grouping_type() == cadwork.element_grouping_type.subgroup:
         return ac.get_subgroup(element)
 
     raise RuntimeError('unknown element grouping type')
